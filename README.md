@@ -1,12 +1,83 @@
 # Poke2.0
-PRUEBA SATORITECH
 
-La prueba consiste en desarrollar un Pokedex, si no tienes contexto, un Pokedex es un sistema que permite identificar a los Pokemón, para esto, te pediremos que consumas el siguiente API JSON https://pokeapi.co/. 
+Poke2.0 es una aplicación que funciona como un Pokédex interactivo, diseñada para identificar y mostrar información sobre Pokémon utilizando la API [PokeAPI](https://pokeapi.co/). Además, incluye características interactivas que aprovechan el GPS del dispositivo.
 
-Cómo debe funcionar es que debe recuperar (consultar el JSON) y traer un nuevo Pokémon, deberá mostrar foto y nombre del mismo, si deseas mostrar más información, adelante. 
+## Funcionalidades
 
-Deberás usar el GPS para que cada 10 mts que se desplace el usuario, vibre el equipo y muestre una alerta de "Pokemon encontrado" y mostrará la misma información de un Pokémon al azar del API.
+1. **Mostrar Pokémon al azar mediante GPS**:
+   - La aplicación utiliza el GPS para detectar el desplazamiento del usuario.
+   - Cada vez que el usuario se desplace 10 metros, el dispositivo vibrará y mostrará una alerta de "¡Pokémon encontrado!".
+   - La alerta incluirá la información de un Pokémon seleccionado al azar desde la API, incluyendo su nombre, imagen y cualquier dato adicional que desees mostrar.
 
-Existirá una segunda opción a través de un botón para obtener un Pokemón. El botón deberá decir "Mostrar Pokemón", al presionarlo, deberá recuperar (obtener del JSON) un Pokemón al azar sin importar si ha recorrido o no los 10 mts.
+2. **Mostrar Pokémon al azar mediante botón**:
+   - Un botón llamado "Mostrar Pokémon" permite al usuario obtener información de un Pokémon al azar sin depender del desplazamiento.
+   - Al presionarlo, la aplicación consulta la API para recuperar los datos del Pokémon y los muestra en pantalla.
 
-Te pedimos desarrollarlo de preferencia en Kotlin, puedes usar las librerías que gustes así como las apis que consideres necesarias. Dale prioridad a que sea una interfaz amigable, y una estructura de código con un patrón tipo MVVM.
+## Requisitos
+
+- Dispositivo con GPS habilitado.
+- Conexión a internet para consumir la API.
+- Sistema operativo Android.
+
+## Tecnologías y Librerías Utilizadas
+
+- **Lenguaje**: Java
+- **API**: [PokeAPI](https://pokeapi.co/)
+- **Patrón de Arquitectura**: MVVM (Model-View-ViewModel)
+- **Librerías Sugeridas**:
+  - Retrofit o Volley para consumo de la API.
+  - LiveData y ViewModel para la arquitectura MVVM.
+  - FusedLocationProviderClient para obtener la ubicación del usuario.
+  - Vibrator para activar la vibración en el dispositivo.
+  - Glide o Picasso para cargar imágenes desde URLs.
+
+## Instalación y Ejecución
+
+1. **Clona este repositorio**:
+
+   ```bash
+   git clone https://github.com/tu-usuario/Poke2.0.git
+   ```
+
+2. **Abre el proyecto en Android Studio**:
+   - Asegúrate de tener configurado el SDK de Android.
+
+3. **Configura permisos**:
+   - En el archivo `AndroidManifest.xml`, asegúrate de incluir los permisos necesarios:
+     ```xml
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.VIBRATE" />
+     ```
+
+4. **Ejecuta la aplicación**:
+   - Conecta tu dispositivo Android o usa un emulador.
+   - Compila y ejecuta la aplicación desde Android Studio.
+
+## Detalles Técnicos
+
+- **Interfaz**:
+  - Diseño amigable y responsivo utilizando componentes nativos de Android y Material Design.
+  - Pantalla principal que muestra la información del Pokémon encontrado o generado.
+
+- **GPS y Alerta**:
+  - El desplazamiento del usuario es calculado en tiempo real utilizando el GPS.
+  - Cada 10 metros, se activa un evento que muestra la alerta y recupera un Pokémon.
+
+- **Consumo de API**:
+  - La API de PokeAPI es consultada para obtener información de Pokémon de manera eficiente y en tiempo real.
+
+## Próximas Mejoras
+
+- Implementación de un historial de Pokémon encontrados.
+- Animaciones adicionales al mostrar la información del Pokémon.
+- Mejora del manejo de errores y estado sin conexión.
+
+## Contacto
+
+Si tienes preguntas o sugerencias, no dudes en contactarme:
+
+- **Autor**: [Josue Alvarez Rodriguez](mailto:arj1931126@gmail.com)
+- **GitHub**: [TuUsuario](https://github.com/tu-usuario)
+
+
